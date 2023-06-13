@@ -1,0 +1,25 @@
+<div>
+  <button mat-raised-button color="warn" (click)="addTab()">
+    Добавить вкладку
+  </button>
+</div>
+
+<mat-tab-group animationDuration="0ms" *ngIf="tabs.length">
+  <mat-tab *ngFor="let tab of tabs; let index = index">
+    <div [ngSwitch]="tab.type" class="pages-container">
+      <ng-template mat-tab-label>
+        <mat-icon *ngSwitchCase="pagesTypes.first" class="example-tab-icon">person</mat-icon>
+        <mat-icon *ngSwitchCase="pagesTypes.second" class="example-tab-icon">list_alt</mat-icon>
+        <mat-icon *ngSwitchCase="pagesTypes.third" class="example-tab-icon">info_outline</mat-icon>
+        <mat-icon *ngSwitchDefault class="example-tab-icon">star</mat-icon>
+        <span> {{ tab.title }}</span>
+        <mat-icon class="example-tab-icon" (click)="removeTab(tab.index)">close</mat-icon>
+      </ng-template>
+      <br />
+      <app-first-page *ngSwitchCase="pagesTypes.first" [data]="tab"></app-first-page>
+      <app-second-page *ngSwitchCase="pagesTypes.second" [data]="tab"></app-second-page>
+      <app-third-page *ngSwitchCase="pagesTypes.third" [data]="tab"></app-third-page>
+      <div *ngSwitchDefault>Нет такого типа</div>
+    </div>
+  </mat-tab>
+</mat-tab-group>

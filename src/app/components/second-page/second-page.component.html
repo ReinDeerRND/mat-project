@@ -1,0 +1,32 @@
+
+{{data?.data | json}}
+<div class="control-container">
+  <app-tree-select 
+  [list]="ovds"
+  [title]="'Период/Эра'"
+  [defaultItem] = "selectedGeoAge"
+  (selected) = "selectOvd($event)"
+  > </app-tree-select>
+</div>
+
+<div class="control-container">
+  <mat-form-field appearance="outline">
+    <mat-label>Период/Эра</mat-label>
+    <mat-select [formControl]="ovdControl">
+      <mat-optgroup *ngFor="let group of ovds" [label]="group.title">
+        <mat-option [value]="group.id">
+          {{ group.title }}
+        </mat-option>
+        <mat-option *ngFor="let child of group.children" [value]="child.id">
+          {{ child.title }}
+        </mat-option>
+      </mat-optgroup>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<p>
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum aspernatur
+  quibusdam incidunt veniam ab mollitia? Repellat facere et inventore pariatur
+  sapiente eos minima, perferendis nulla delectus, deserunt sequi quidem at.
+</p>

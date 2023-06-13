@@ -1,0 +1,41 @@
+.mat-tree {
+  width: 100%;
+  padding-right: 5px;
+  background-color: white;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  max-height: 300px;
+  overflow-y: auto;
+  background-color: white;
+
+  .parent {
+    cursor: pointer;
+  }
+}
+
+::ng-deep .mat-mdc-menu-panel.mat-mdc-menu-panel {
+  max-width: 450px;
+  padding-right: 15px;
+}
+
+.child {
+  cursor: pointer;
+}
+
+.select-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: relative;
+  height: 70px;
+  width: 100%;
+
+  .label {
+    padding: 15px;
+    width: 120px;
+  }
+  mat-form-field.selectedItem {
+    width: 100%;
+  }
+}

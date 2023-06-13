@@ -1,0 +1,43 @@
+<div class="select-wrapper">
+  <mat-form-field class="selectedItem" appearance="outline">
+    <mat-label>{{title}}</mat-label>
+    <input matInput [matMenuTriggerFor]="floattree" [formControl]="inputControl" placeholder="Подразделение МВД" [value] ="selectedItem?.title">
+  </mat-form-field>
+
+  <mat-menu class="float-tree" #floattree="matMenu">
+    <mat-tree
+      [dataSource]="dataSource"
+      [treeControl]="treeControl"
+    >
+      <!-- This is the tree node template for leaf nodes -->
+      <mat-tree-node
+        *matTreeNodeDef="let node"
+        matTreeNodePadding
+        (click)="selectNode(node)"
+        class="child"
+      >
+        <!-- use a disabled button to provide padding for tree leaf -->
+        <button mat-icon-button disabled></button>
+        {{ node.title }}
+      </mat-tree-node>
+      <!-- This is the tree node template for expandable nodes -->
+      <mat-tree-node
+        *matTreeNodeDef="let node; when: hasChild"
+        matTreeNodePadding
+        class="parent"
+        (click)="selectNode(node)"
+      >
+        <button
+          mat-icon-button
+          matTreeNodeToggle
+          [attr.aria-label]="'Toggle ' + node.title"
+        >
+          <mat-icon class="mat-icon-rtl-mirror">
+            {{ treeControl.isExpanded(node) ? "expand_more" : "chevron_right" }}
+          </mat-icon>
+        </button>
+        {{ node.title }}
+      </mat-tree-node>
+    </mat-tree>
+  </mat-menu>
+</div>
