@@ -42,7 +42,15 @@ export const GeologyTree: GeologyAge[] = [
               { id: 19, title: 'Стений' },
             ],
           },
-          
+          {
+            id: 21,
+            title: 'Неопротерозой',
+            children: [
+              { id: 22, title: 'Тоний' },
+              { id: 23, title: 'Криогений' },
+              { id: 24, title: 'Эдиакарий' },
+            ],
+          },
         ],
       },
     ],
@@ -54,14 +62,32 @@ export const GeologyTree: GeologyAge[] = [
       {
         id: 16,
         title: 'Палеозой',
+        children: [
+          { id: 25, title: 'Кембрий' },
+          { id: 26, title: 'Ордовик' },
+          { id: 27, title: 'Силур' },
+          { id: 28, title: 'Девон' },
+          { id: 29, title: 'Карбон' },
+          { id: 30, title: 'Пермь' },
+        ],
       },
       {
         id: 17,
         title: 'Мезозой',
+        children: [
+          { id: 31, title: 'Триас' },
+          { id: 32, title: 'Юра' },
+          { id: 33, title: 'Мел' },
+        ],
       },
       {
         id: 20,
         title: 'Кайнозой',
+        children: [
+          { id: 34, title: 'Палеоген' },
+          { id: 35, title: 'Неоген' },
+          { id: 36, title: 'Четвертичный (антропоген)' },
+        ],
       },
     ],
   },
